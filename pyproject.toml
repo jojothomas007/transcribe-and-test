@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Translate jira, confluence contents"
 authors = ["Jojo Thomas <jojothomas007@gmail.com>"]
 readme = "README.md"
-packages = [{include = "transcribe-test", from = "src"}]
+packages = [{include = "transcribe_test", from = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.12,<3.13"
@@ -12,11 +12,8 @@ python-dotenv = "^1.0.1"
 openai = "^1.66.3"
 argostranslate = "^1.9.6"
 pyinstaller = "^6.12.0"
+cryptography = "^44.0.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-
-[tool.poetry.scripts]
-start = "pyinstaller --onefile --windowed main.py"
