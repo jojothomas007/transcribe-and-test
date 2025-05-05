@@ -21,18 +21,6 @@ class Action:
         description:str = issue.fields.description
         trans_text:str = Translator.translate(description)
         new_description:str = f"{description} \n --------------------------------------------\n{trans_text}"
-        # fields = Fields(
-        #     project=None,
-        #     summary=json_userstory["summary"],
-        #     description=json_userstory["description"],
-        #     issuetype=issue_type,
-        #     parent=None,
-        #     attachment=[],
-        #     creator=None,
-        #     issuelinks=None
-        # )
-        # bulk_issue_fields = BulkIssueFields(fields=fields)
-        
         payload:json = {
             "fields": {
                 "description": new_description

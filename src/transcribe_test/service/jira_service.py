@@ -65,8 +65,11 @@ class JiraService:
         })
         self.request_sender.put_request(request_url, self.headers, payload, self.auth)
 
-    def update_issue(self, issue_id_or_key:str, payload:json) -> requests.Response:
+    def update_issue_description(self, issue_id_or_key:str, description:str) -> requests.Response:
         request_url = f"{self.jira_api_url}/issue/{issue_id_or_key}"
-        # payload = jira_issue_fields_dto.model_dump_json(exclude_none=True)
-        # jira_issue_fields_dto:BulkIssueFields
+        payload = {
+            "fields": {
+                "description": description
+            }
+        }
         return self.request_sender.put_request_json(request_url, self.headers, payload, self.auth)
